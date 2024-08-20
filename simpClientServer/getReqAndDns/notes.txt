@@ -1,0 +1,50 @@
+VARIABLES AND TYPES USED IN PROGRAM:
+
+-- Char*        buf     | Main input buffer sent by remote server
+-- Char*        toSend  | Main output buffer, sent by client to server
+-- int          sfd     | Socket file descriptor
+-- int          status  | Status of connection to server
+-- int          rStatus | Status of reading input from server
+
+==STRUCTS USED==
+
+-- sockaddr_in  addr    | Primary address storing location and port to server
+-- hostent      hn      | Temporary struct storing addresses from DNS query
+
+======
+
+SECTION: INITIALIZATION OF BUFFERS, SOCKET, AND MAIN ADDRESS STRUCT
+
+  This program creates a buffer, containing 65536 bytes. It then creates a
+second buffer, containing the HTTP request to send. The socket file descriptor
+is then declared with a socket command, including the type of socket, and the
+protocol used. This value is checked for errors. Then the primary address
+structure is declared. The type of address, and the port of the address, is then
+declared within this struct. 
+
+======
+
+SECTION: DNS QUERY AND STORAGE OF ADDRESS INTO MAIN ADDRESS STRUCT
+
+  The temporary struct is declared, and is then assigned a value by the DNS
+query. This value is then checked for errors. It is then stored into the IP
+section of the primary address, through a cast.
+
+======
+
+SECTION: CONNECTION, AND SENDING
+
+  The program is now ready to connect to the remote server. This is done with a
+connect command. The connect command accepts the socket file descriptor, the
+primary address struct, and the struct's size. Once the status is checked, and
+the client is fully connected, the send command can now be used. This command
+takes in the socket file descriptor, the buffer to send, the buffer's size, and
+the flags (which can be set to zero). Once sent, the program can now read from
+the same socket file descriptor, into the main buffer, with its given size.
+
+======
+
+SECTION: PRINTING
+
+  The buffer is now printed with a simple printf statement, memory is freed, and
+then the program exits.

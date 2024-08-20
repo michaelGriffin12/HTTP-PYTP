@@ -1,0 +1,7 @@
+  This routing functionality will use a routing file, which will specify
+the route, and the file that the route points to. This file will use a
+single 8-bit integer at the beginning, specifying the number of routes
+included in the file. Then, two more 8-bit integers will specify the
+length of the route string, and the route file string, which will both
+be placed in order as such. This file format will be specified by a
+struct, and will be placed in the main.c router file.

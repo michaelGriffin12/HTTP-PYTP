@@ -1,0 +1,15 @@
+    unistd.h -- Contains the read function
+                Contains the write function
+sys/socket.h -- Contains the socket function
+                Contains the bind function
+netinet/in.h -- Contains the sockaddr_in struct
+
+  In order for a server to function, the socket must be binded using the bind
+command. Once bound, the program can then issue a listen command to the socket,
+providing the backlog. This tells the operating system that the program is now
+ready to accept incoming connections. Now, the accept command is issued, which
+(pauses the program)[Not verified], and waits for a client. Once the client
+connects, the command issues a new file descriptor pointing to a socket
+connected to the client.
+
+CLIENT ADDRESS WILL BE NECCESARY

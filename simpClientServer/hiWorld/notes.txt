@@ -1,0 +1,4 @@
+  In order for a UNIX program to communicate on the web, it must first
+create a socket. This can be done with the socket syscall, which returns a
+file descriptor. The program must now issue the connect() syscall, which
+will connect the socket to the server. 

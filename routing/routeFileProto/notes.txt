@@ -1,0 +1,2 @@
+  The route file format will need a integrity checker, in order to
+ensure the server will not crash while loading the routes.
