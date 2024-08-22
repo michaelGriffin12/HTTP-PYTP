@@ -1,0 +1,20 @@
+IMPORTANT CHANGE #1:
+
+  The routing file format's route string, and file string; should switch
+places. This is in order to make it easier to check file integrity.
+Since the first character of a route string will always start with '/',
+the integrity checker will know when the file string ends; and it will
+know when the route string ends, by checking for a non-letter byte.
+
+POSSIBLE ISSUES WITH CHANGE #1:
+
+  It may cause problems for any string larger than 45 bytes, if a simple
+check is performed for any char larger than '.' within the ascii table.
+And, it may cause problems for any "string size" byte that happens to
+correspond to a letter, or '/'.
+
+  Long story short, boundary checks that are performed with the
+anticipation that every entry will end with certain bytes, will restrict
+those bytes to be placed into a certain location. If the integrity
+checker is to be implemented, certain ascii codes will be required to be
+at certain locations within the route file.
