@@ -1,0 +1,2 @@
+24
+/usr/home/michael/programs/c/web/http-pytp/util/seeknull/test.txt

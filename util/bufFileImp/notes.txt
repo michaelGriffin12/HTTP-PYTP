@@ -1,0 +1,2 @@
+  This project includes improvements to the bufFile function, which will be used
+within the HTTP server.
